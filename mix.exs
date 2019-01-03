@@ -7,11 +7,14 @@ defmodule Memfish.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      package: package(),
+      description: description(),
+      deps: deps(),
+      docs: docs(),
+      source_url: "https://github.com/cleverbunny/memfish"
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
       extra_applications: [:logger],
@@ -19,11 +22,29 @@ defmodule Memfish.MixProject do
     ]
   end
 
-  # Run "mix help deps" to learn about dependencies.
+  defp package do
+    [
+      maintainers: ["Tetiana Dushenkivska", "Keith Salisbury"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/cleverbunny/memfish"}
+    ]
+  end
+
+  defp description do
+    "Stores key/value pairs for a specified period"
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      logo: "memfish.jpg",
+      extras: ["README.md"]
+    ]
+  end
+
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:ex_doc, "~> 0.19", only: :dev, runtime: false}
     ]
   end
 end
